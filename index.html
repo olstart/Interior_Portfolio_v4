@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Nature Image Gallery</h1>
+
+       <div class="img-container">
+        <div class="img">
+            <img src="img/01.jpg">
+        </div>
+
+        <div class="img">
+            <img src="img/02.jpg">
+        </div>
+
+        <div class="img">
+            <img src="img/03.jpg">
+        </div>
+
+        <div class="img">
+            <img src="img/04.jpg">
+        </div>
+
+        <div class="img">
+            <img src="img/05.jpg">
+        </div>
+
+        <div class="img">
+            <img src="img/06.jpg">
+        </div>
+       </div>
+
+       <div class="pop-up">
+       <img src="img/04.jpg" alt="">
+       </div>
+
+    </div>
+    
+    <script>
+        document.querySelectorAll('.img-container img').forEach(img => {
+          img.onclick = () => {
+            document.querySelector('.pop-up').style.display = 'block';
+            document.querySelector('.pop-up img').src = img.getAttribute('src');
+          }
+        });
+
+        // Закрытие изображения по клику в любом месте
+        document.querySelector('.pop-up').onclick = () => {
+            document.querySelector('.pop-up').style.display = 'none';
+        }
+
+        // Закрытие изображения по нажатию на клавишу Esc
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                document.querySelector('.pop-up').style.display = 'none';
+            }
+        });
+
+    </script>
+
+
+</body>
+</html>
