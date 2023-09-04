@@ -93,3 +93,15 @@ h1 {
         width: 100%; /* Для очень маленьких экранов 1 изображение в ряду */
     }
 }
+
+@media screen and (max-width: 1024px), screen and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+    .container .img-container .img {
+        width: calc(50% - 1px); /* 2 изображения в ряду */
+    }
+}
+
+@media screen and (max-width: 480px), screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    .container .img-container .img {
+        width: 100%; /* 1 изображение в ряду */
+    }
+}
