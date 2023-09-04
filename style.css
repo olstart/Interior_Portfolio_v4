@@ -76,3 +76,20 @@ h1 {
         width: 95%;
     }
 }
+@media (max-width: 768px) {
+    .container .img-container .img {
+        width: calc(50% - 1px); /* Для мобильных устройств 2 изображения в ряду */
+    }
+
+    .container .pop-up img {
+        width: 95%; /* Увеличиваем размер поп-апа */
+        max-width: 95%;
+        max-height: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container .img-container .img {
+        width: 100%; /* Для очень маленьких экранов 1 изображение в ряду */
+    }
+}
