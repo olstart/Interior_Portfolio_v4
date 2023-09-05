@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Nature Image Gallery</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -46,24 +46,29 @@
     </div>
     
     <script>
-        document.querySelectorAll('.img-container img').forEach(img => {
-          img.onclick = () => {
-            document.querySelector('.pop-up').style.display = 'block';
-            document.querySelector('.pop-up img').src = img.getAttribute('src');
-          }
-        });
+       // Разрешить зум при открытии картинки
+document.querySelectorAll('.img-container img').forEach(img => {
+    img.onclick = () => {
+        document.querySelector('.pop-up').style.display = 'block';
+        document.querySelector('.pop-up img').src = img.getAttribute('src');
+        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=yes');
+    }
+});
 
-        // Закрытие изображения по клику в любом месте
-        document.querySelector('.pop-up').onclick = () => {
-            document.querySelector('.pop-up').style.display = 'none';
-        }
+// Запретить зум при закрытии картинки
+document.querySelector('.pop-up').onclick = () => {
+    document.querySelector('.pop-up').style.display = 'none';
+    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no');
+}
 
-        // Закрытие изображения по нажатию на клавишу Esc
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
-                document.querySelector('.pop-up').style.display = 'none';
-            }
-        });
+// Запретить зум при закрытии картинки с клавиши Esc
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        document.querySelector('.pop-up').style.display = 'none';
+        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no');
+    }
+});
+
 
     </script>
 
